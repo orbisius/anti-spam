@@ -431,7 +431,7 @@ class orb_anti_spam_util {
 	/**
 	 * @return string
 	 */
-	public static public static function get_user_ip() {
+	public static function get_user_ip() {
 		return empty($_SERVER['REMOTE_ADDR']) ? '' : $_SERVER['REMOTE_ADDR'];
 	}
 
