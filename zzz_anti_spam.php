@@ -291,6 +291,12 @@ class orb_anti_spam {
         if (preg_match_all( '#https?:/+[\w\-\.\:/\?\%\&\=]+#si', $buff, $matches )) {
             $score += count($matches[0]) * 2;
         }
+		
+		// Find all uppercase words
+		// https://stackoverflow.com/questions/9301415/identify-and-get-capitalized-words-in-a-string-in-php#:~:text=In%20addition%20to%20the%20regular,the%20character%20to%20your%20%24str1%20.
+        if (preg_match_all( '/\b([A-Z]+)\b/', $buff, $matches )) {
+            $score += count($matches[0]) * 2;
+        }
 
         // Get from file or ENV
         $phrases = [
